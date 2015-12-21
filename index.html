@@ -17,7 +17,7 @@
 				<line id="stick-figure-left-leg" x1="110" y1="275" x2="150" y2="225" stroke="black" stroke-width="4" visibility="hidden"/>
 				<line id="stick-figure-right-leg" x1="190" y1="275" x2="150" y2="225" stroke="black" stroke-width="4" visibility="hidden"/>
 			</svg>
-			<div>
+			<div id="choose-category-dropdown-div">
 				<!-- Dropdown to choose the category-->
 				<a class="dropdown-button btn" href="#" data-activates="choose-category-dropdown">Choose a Category</a>
 				<ul id="choose-category-dropdown" class="dropdown-content">
@@ -26,18 +26,47 @@
 					<li><a id="option-sorts" href="#">Sorts</a></li>
 				</ul>
 			</div>
+			<div class="input-field">
+				<input id="guess-input" type="text"><br>
+				<label for="guess-input">Guess a letter or the word</label>
+			</div>
 			<h1 id="word"></h1>
 		</div>
 		<script>
+	 		var consonants = "BCDFGHJKLMNPQRSTVWXYZ";
+
+			function setupWord(word){
+		 		//splits string into a list of strings of length 1 and maps over them
+		 		var displayword = word.split("").map(function(x){
+		 			//if its a consonant replace it with a _ 
+		 			if(consonants.indexOf(x.toUpperCase()) > -1)
+		 			{
+		 				return "_";
+		 			}
+		 			else
+		 			{
+		 				return x;
+		 			}
+	 			//add in spaces between letters
+		 		}).join(" ");
+		 		//sets the h1 to the word to display
+		 		$("#word").text(displayword);
+		 		$("#choose-category-dropdown-div").hide();
+			}
+
 		 	function play(word){
+		 		var wordToGuess = word.toUpperCase();
+		 		setupWord(word);
+				$("#stick-figure-head").css("visibility", "visible");
 		 	}
+		 	
 		 	//when the user selects the data structures option
 			$("#option-data-structures").click(function(){
 				var potentialWords = ["array list", "hash map", "binary tree", "priority queue", "Linked List"];
 				var randomWord = potentialWords[Math.floor(Math.random()*5)];
 				play(randomWord);
 			});
-			
+
 		 	//when the user selects the programming languages option
 			$("#option-programming-languages").click(function(){
 				var potentialWords = ["Javascript", "Objective C", "Scala", "Python", "C plus plus"];
@@ -51,7 +80,6 @@
 				var randomWord = potentialWords[Math.floor(Math.random()*5)];
 				play(randomWord);
 			});			
-			$("#stick-figure-head").css("visibility", "visible");
 		</script>
 	</body>
 </html>
