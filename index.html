@@ -7,16 +7,51 @@
         <script type="text/javascript" src="js/materialize.min.js"></script>
 	</head>
 	<body>
-		<svg width="300" height="500">
-			<circle id="stick-figure-head" cx="150" cy="50", r="40" stroke="black" stroke-width="4" fill="white"/>
-			<line id="stick-figure-body" x1="150" y1="90" x2="150" y2="225" stroke="black" stroke-width="4"/>
-			<line id="stick-figure-left-arm" x1="100" y1="100" x2="150" y2="150" stroke="black" stroke-width="4"/>
-			<line id="stick-figure-right-arm" x1="200" y1="100" x2="150" y2="150" stroke="black" stroke-width="4"/>
-			<line id="stick-figure-left-leg" x1="110" y1="275" x2="150" y2="225" stroke="black" stroke-width="4"/>
-			<line id="stick-figure-right-leg" x1="190" y1="275" x2="150" y2="225" stroke="black" stroke-width="4"/>
-		</svg>
+		<div class="container">
+			<svg width="300" height="350">
+				<!--Uses SVG to draw the stick figure-->
+				<circle id="stick-figure-head" cx="150" cy="50", r="40" stroke="black" stroke-width="4" fill="white" visibility="hidden"/>
+				<line id="stick-figure-body" x1="150" y1="90" x2="150" y2="225" stroke="black" stroke-width="4" visibility="hidden"/>
+				<line id="stick-figure-left-arm" x1="100" y1="100" x2="150" y2="150" stroke="black" stroke-width="4" visibility="hidden"/>
+				<line id="stick-figure-right-arm" x1="200" y1="100" x2="150" y2="150" stroke="black" stroke-width="4" visibility="hidden"/>
+				<line id="stick-figure-left-leg" x1="110" y1="275" x2="150" y2="225" stroke="black" stroke-width="4" visibility="hidden"/>
+				<line id="stick-figure-right-leg" x1="190" y1="275" x2="150" y2="225" stroke="black" stroke-width="4" visibility="hidden"/>
+			</svg>
+			<div>
+				<!-- Dropdown to choose the category-->
+				<a class="dropdown-button btn" href="#" data-activates="choose-category-dropdown">Choose a Category</a>
+				<ul id="choose-category-dropdown" class="dropdown-content">
+					<li><a id="option-data-structures" href="#">Data Structures</a></li>
+					<li><a id="option-programming-languages" href="#">Programming Languages</a></li>
+					<li><a id="option-sorts" href="#">Sorts</a></li>
+				</ul>
+			</div>
+			<h1 id="word"></h1>
+		</div>
 		<script>
-			//$("#myCircle").css("visibility", "hidden");
+		 	function play(word){
+		 	}
+		 	//when the user selects the data structures option
+			$("#option-data-structures").click(function(){
+				var potentialWords = ["array list", "hash map", "binary tree", "priority queue", "Linked List"];
+				var randomWord = potentialWords[Math.floor(Math.random()*5)];
+				play(randomWord);
+			});
+			
+		 	//when the user selects the programming languages option
+			$("#option-programming-languages").click(function(){
+				var potentialWords = ["Javascript", "Objective C", "Scala", "Python", "C plus plus"];
+				var randomWord = potentialWords[Math.floor(Math.random()*5)];
+				play(randomWord);
+			});
+
+		 	//when the user selects the sorts option
+			$("#option-sorts").click(function(){
+				var potentialWords = ["bubble", "insertion", "selection", "quick", "merge"];
+				var randomWord = potentialWords[Math.floor(Math.random()*5)];
+				play(randomWord);
+			});			
+			$("#stick-figure-head").css("visibility", "visible");
 		</script>
 	</body>
 </html>
