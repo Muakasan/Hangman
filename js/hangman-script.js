@@ -4,25 +4,25 @@ var consonants = "BCDFGHJKLMNPQRSTVWXYZ";
 $("#guess-input-div").hide();
 
 function setupWord(word){
-		//splits string into a list of strings of length 1 and maps over them
-		var displayword = word.split("").map(function(x){
-			//if its a consonant replace it with a _ 
-			if(consonants.indexOf(x.toUpperCase()) > -1)
-			{
-				return "_";
-			}
-			else
-			{
-				return x;
-			}
-		//add in spaces between letters
-		}).join(" ");
-		//sets the h1 to the word to display
-		$("#word").text(displayword);
-		//hides the dropdown when playing
-		$("#choose-category-dropdown-div").hide();
-		//shows the input field so you can start guessing
-		$("#guess-input-div").show();
+	//splits string into a list of strings of length 1 and maps over them
+	var displayword = word.split("").map(function(x){
+		//if its a consonant replace it with a _ 
+		if(consonants.indexOf(x.toUpperCase()) > -1)
+		{
+			return "_";
+		}
+		else
+		{
+			return x;
+		}
+	//add in spaces between letters
+	}).join(" ");
+	//sets the h1 to the word to display
+	$("#word").text(displayword);
+	//hides the dropdown when playing
+	$("#choose-category-dropdown-div").hide();
+	//shows the input field so you can start guessing
+	$("#guess-input-div").show();
 }
 
 function updateStickFigure(numParts){
@@ -63,19 +63,19 @@ function play(word){
 								wordToDisplay = wordToDisplay.slice(0, x*2) + word.charAt(x) + wordToDisplay.slice(x*2+1);
 							}
 						}
-			 		$("#word").text(wordToDisplay);
- 					
- 					//if there are no blanks then they have won
-		 			if(wordToDisplay.indexOf("_") === -1)
-		 			{
-		 				alert("You Win!");
-		 				resetGame();
-		 			}
+				 		$("#word").text(wordToDisplay);
+	 					
+	 					//if there are no blanks then they have won
+			 			if(wordToDisplay.indexOf("_") === -1)
+			 			{
+			 				alert("You Win!");
+			 				resetGame();
+			 			}
 					}
 					else
 					{
 						incorrectGuesses.add(guess);
-	 				//number of wrong guesses is the number of parts that should be shown
+	 					//number of wrong guesses is the number of parts that should be shown
 						updateStickFigure(incorrectGuesses.size);
 					}
 				}
@@ -96,7 +96,7 @@ function play(word){
 				else
 				{
 					incorrectGuesses.add(guess);
- 				//number of wrong guesses is the number of parts that should be shown
+ 					//number of wrong guesses is the number of parts that should be shown
 					updateStickFigure(incorrectGuesses.size);
 				}
 			}
@@ -110,24 +110,23 @@ function play(word){
 			}
 		}
 	});
-	//$("#stick-figure-head").css("visibility", "visible");
 }
 	
-	//when the user selects the data structures option
+//when the user selects the data structures option
 $("#option-data-structures").click(function(){
 	var potentialWords = ["array list", "hash map", "binary tree", "priority queue", "Linked List"];
 	var randomWord = potentialWords[Math.floor(Math.random()*5)];
 	play(randomWord);
 });
 
-	//when the user selects the programming languages option
+//when the user selects the programming languages option
 $("#option-programming-languages").click(function(){
 	var potentialWords = ["Javascript", "Objective C", "Scala", "Python", "C plus plus"];
 	var randomWord = potentialWords[Math.floor(Math.random()*5)];
 	play(randomWord);
 });
 
-	//when the user selects the sorts option
+//when the user selects the sorts option
 $("#option-sorts").click(function(){
 	var potentialWords = ["bubble", "insertion", "selection", "quick", "merge"];
 	var randomWord = potentialWords[Math.floor(Math.random()*5)];
