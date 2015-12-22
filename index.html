@@ -9,31 +9,38 @@
 	<body>
 		<div class="container">
 			<h1>
-				Let's Play Hangman
+				Let's Play Hangman!
 			</h1>
-			<svg width="300" height="350">
-				<!--Uses SVG to draw the stick figure-->
-				<circle id="stick-figure-head" cx="150" cy="50", r="40" stroke="black" stroke-width="4" fill="white" visibility="hidden"/>
-				<line id="stick-figure-body" x1="150" y1="90" x2="150" y2="225" stroke="black" stroke-width="4" visibility="hidden"/>
-				<line id="stick-figure-left-arm" x1="100" y1="100" x2="150" y2="150" stroke="black" stroke-width="4" visibility="hidden"/>
-				<line id="stick-figure-right-arm" x1="200" y1="100" x2="150" y2="150" stroke="black" stroke-width="4" visibility="hidden"/>
-				<line id="stick-figure-left-leg" x1="110" y1="275" x2="150" y2="225" stroke="black" stroke-width="4" visibility="hidden"/>
-				<line id="stick-figure-right-leg" x1="190" y1="275" x2="150" y2="225" stroke="black" stroke-width="4" visibility="hidden"/>
-			</svg>
-			<div id="choose-category-dropdown-div">
-				<!-- Dropdown to choose the category-->
-				<a class="dropdown-button btn" href="#" data-activates="choose-category-dropdown">Choose a Category</a>
-				<ul id="choose-category-dropdown" class="dropdown-content">
-					<li><a id="option-data-structures" href="#">Data Structures</a></li>
-					<li><a id="option-programming-languages" href="#">Programming Languages</a></li>
-					<li><a id="option-sorts" href="#">Sorts</a></li>
-				</ul>
+			<div class="row">
+				<div class="col s4">
+					<svg width="300" height="350">
+						<rect width="300" height="350" stroke-width="4" stroke="black" fill="none"/>
+						<!--Uses SVG to draw the stick figure-->
+						<circle id="stick-figure-head" cx="150" cy="50", r="40" stroke="black" stroke-width="4" fill="white" visibility="hidden"/>
+						<line id="stick-figure-body" x1="150" y1="90" x2="150" y2="225" stroke="black" stroke-width="4" visibility="hidden"/>
+						<line id="stick-figure-left-arm" x1="100" y1="100" x2="150" y2="150" stroke="black" stroke-width="4" visibility="hidden"/>
+						<line id="stick-figure-right-arm" x1="200" y1="100" x2="150" y2="150" stroke="black" stroke-width="4" visibility="hidden"/>
+						<line id="stick-figure-left-leg" x1="110" y1="275" x2="150" y2="225" stroke="black" stroke-width="4" visibility="hidden"/>
+						<line id="stick-figure-right-leg" x1="190" y1="275" x2="150" y2="225" stroke="black" stroke-width="4" visibility="hidden"/>
+					</svg>
+				</div>
+				<div class="col s6">
+					<div id="choose-category-dropdown-div">
+						<!-- Dropdown to choose the category-->
+						<a class="dropdown-button btn" href="#" data-activates="choose-category-dropdown">Choose a Category</a>
+						<ul id="choose-category-dropdown" class="dropdown-content">
+							<li><a id="option-data-structures" href="#">Data Structures</a></li>
+							<li><a id="option-programming-languages" href="#">Programming Languages</a></li>
+							<li><a id="option-sorts" href="#">Sorts</a></li>
+						</ul>
+					</div>
+					<div id="guess-input-div" class="input-field">
+						<input id="guess-input" type="text"><br>
+						<label for="guess-input">Guess a letter or the word</label>
+					</div>
+					<h1 id="word"></h1>
+				</div>
 			</div>
-			<div id="guess-input-div" class="input-field">
-				<input id="guess-input" type="text"><br>
-				<label for="guess-input">Guess a letter or the word</label>
-			</div>
-			<h1 id="word"></h1>
 		</div>
 		<script>
 	 		var consonants = "BCDFGHJKLMNPQRSTVWXYZ";
