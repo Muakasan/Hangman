@@ -113,21 +113,21 @@ function play(word){
 }
 	
 //when the user selects the data structures option
-$("#option-data-structures").click(function(){
+$("#option-data-structures").on("touchstart click", function(){
 	var potentialWords = ["array list", "hash map", "binary tree", "priority queue", "Linked List"];
 	var randomWord = potentialWords[Math.floor(Math.random()*5)];
 	play(randomWord);
 });
 
 //when the user selects the programming languages option
-$("#option-programming-languages").click(function(){
+$("#option-programming-languages").on("touchstart click", function(){
 	var potentialWords = ["Javascript", "Objective C", "Scala", "Python", "C plus plus"];
 	var randomWord = potentialWords[Math.floor(Math.random()*5)];
 	play(randomWord);
 });
 
 //when the user selects the sorts option
-$("#option-sorts").click(function(){
+$("#option-sorts").on("touchstart click", function(){
 	var potentialWords = ["bubble", "insertion", "selection", "quick", "merge"];
 	var randomWord = potentialWords[Math.floor(Math.random()*5)];
 	play(randomWord);
